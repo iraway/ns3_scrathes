@@ -16,3 +16,7 @@ $ NS_LOG="<project_logs>" ./waf --run <project_name>
 
 1. SimpleUdpApplication \
 Three nodes in one network. It's possible to send packets with custom data between them. 
+
+2. SocketApplication \
+Updated version of SimpleUdpApplication. Save PCAP filtes into ../ns-allinone-3.33/ns-3.33/pcap/SocketApplication path.
+
