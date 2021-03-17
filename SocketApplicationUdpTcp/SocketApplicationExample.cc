@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
 {
     bool udp = false;
     CommandLine cmd(__FILE__);
-    cmd.AddValue ("udp",  "udp model or not",       udp);
+    cmd.AddValue("udp", "udp model or not", udp);
     cmd.Parse(argc, argv);
 
     NodeContainer nodes0;
@@ -65,14 +65,13 @@ int main(int argc, char* argv[])
 
     nodes0.Get(0)->AddApplication(udp0);
     nodes0.Get(1)->AddApplication(udp1);
-    if(udp){
+    if (udp) {
         nodes0.Get(2)->AddApplication(udp2);
-    }else{
+    } else {
         PacketSinkHelper sink("ns3::TcpSocketFactory", InetSocketAddress(Ipv4Address::GetAny(), port));
         ApplicationContainer sinkApp0 = sink.Install(nodes0.Get(2));
         sinkApp0.Start(Seconds(startTime));
         sinkApp0.Stop(Seconds(stopTime));
-
     }
 
     Ipv4Address dest_ip2 = interfaces1.GetAddress(1);
