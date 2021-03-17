@@ -13,6 +13,7 @@ $ NS_LOG="<project_logs>" ./waf --run <project_name>
 
 
 ### List of projects:
+To start each of project it's necessary to  ../ns-allinone-3.33/ns-3.33/pcap/{Project_Name} folder was created.
 
 1. SimpleUdpApplication \
 Three nodes in one network. It's possible to send packets with custom data between them. 
@@ -25,4 +26,8 @@ In this version it's possible to use UDP or TCP protocol. In TCP case TcpSinkHel
 ```sh
 $ ./waf -- run "SocketApplicationUdpTcp --udp={true/false}"
 ```
-
+4. SocketApplicationErrorModel \
+Added a error model and collection of statistics. With TCP sometimes it occurs a assertion with dupAck. To run application: 
+```sh
+$ ./waf -- run "SocketApplicationErrorModel --udp={true/false} --errorRate=[0..1] --numMes=[number] --logs={true/false}"
+```
